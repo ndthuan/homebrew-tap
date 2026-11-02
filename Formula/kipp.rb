@@ -4,6 +4,29 @@ class Kipp < Formula
   desc "Job-first CI and scheduler in a single binary"
   homepage "https://github.com/ndthuan/kipp"
   license "MIT"
+  version "1.0.0"
+
+  on_macos do
+    on_arm do
+      url "https://github.com/ndthuan/kipp/releases/download/v1.0.0/kipp_1.0.0_darwin_arm64.tar.gz"
+      sha256 "015e4eb8f6b6249b8f913d8742e363d88698822d8293358436cd7dd38f439a69"
+    end
+    on_intel do
+      url "https://github.com/ndthuan/kipp/releases/download/v1.0.0/kipp_1.0.0_darwin_amd64.tar.gz"
+      sha256 "385c5b9df32394d69a4ea951f01087bab686c16bd8753047b2779df122ba7670"
+    end
+  end
+
+  on_linux do
+    on_arm do
+      url "https://github.com/ndthuan/kipp/releases/download/v1.0.0/kipp_1.0.0_linux_arm64.tar.gz"
+      sha256 "1996b48d495cab5d8edfc626f81231f7f715d0d4d22b5f3427bef5d9d59645f9"
+    end
+    on_intel do
+      url "https://github.com/ndthuan/kipp/releases/download/v1.0.0/kipp_1.0.0_linux_amd64.tar.gz"
+      sha256 "827c7e4575f69a599c5aa35dfaa8dd629b41d03e1abbf250c6250ab058d20aa6"
+    end
+  end
 
   head do
     url "https://github.com/ndthuan/kipp.git", branch: "main"
