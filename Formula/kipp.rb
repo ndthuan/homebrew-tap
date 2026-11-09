@@ -4,27 +4,27 @@ class Kipp < Formula
   desc "Job-first CI and scheduler in a single binary"
   homepage "https://github.com/ndthuan/kipp"
   license "MIT"
-  version "1.1.1"
+  version "1.2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/ndthuan/kipp/releases/download/v1.1.1/kipp_1.1.1_darwin_arm64.tar.gz"
-      sha256 "a83839c1abb38103b69a229d072720720e1d926c5f86d378d3c6b6f209d16ccb"
+      url "https://github.com/ndthuan/kipp/releases/download/v1.2.0/kipp_1.2.0_darwin_arm64.tar.gz"
+      sha256 "d6f2342b3705fdbe3d80c0cd6164a539a8ecc8734546643cec4926c3cdf6f898"
     end
     on_intel do
-      url "https://github.com/ndthuan/kipp/releases/download/v1.1.1/kipp_1.1.1_darwin_amd64.tar.gz"
-      sha256 "666681caa40832768313fe8041e3044449bdcbc6aa03fa633ffcfb86a3f41548"
+      url "https://github.com/ndthuan/kipp/releases/download/v1.2.0/kipp_1.2.0_darwin_amd64.tar.gz"
+      sha256 "d90bdd6822dc1909a8170ea1c18779932390947d7291d1688f593ea9177f0401"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/ndthuan/kipp/releases/download/v1.1.1/kipp_1.1.1_linux_arm64.tar.gz"
-      sha256 "15f813d8089e9dc3e3be9e845f74cee69cda0e9d848a8807aefdd6259c3871ce"
+      url "https://github.com/ndthuan/kipp/releases/download/v1.2.0/kipp_1.2.0_linux_arm64.tar.gz"
+      sha256 "046f79b065f5b3371e52fd6cacf61f8b1aad2f681d5f28827bc30c5833817f94"
     end
     on_intel do
-      url "https://github.com/ndthuan/kipp/releases/download/v1.1.1/kipp_1.1.1_linux_amd64.tar.gz"
-      sha256 "64c2aef904c8bf1efd65c4be59d5058f2e6b59c18ebe87ed4c52a7bd7448e252"
+      url "https://github.com/ndthuan/kipp/releases/download/v1.2.0/kipp_1.2.0_linux_amd64.tar.gz"
+      sha256 "a5e8024ee19cbe5a3935c9547ec391fa4023737a4d9da48af85a1ed204c1b280"
     end
   end
 
@@ -39,7 +39,7 @@ class Kipp < Formula
       %w[amd64 arm64].each do |arch|
         with_env(CGO_ENABLED: "0", GOOS: "linux", GOARCH: arch) do
           system "go", "build", "-trimpath", "-buildvcs=false", "-ldflags", ldflags,
-                 "-o", "internal/agentbin/bin/kipp-agent_linux_#{arch}", "./cmd/kipp-agent"
+                 "-o", "internal/runnerbin/bin/kipp-runner_linux_#{arch}", "./cmd/kipp-runner"
         end
       end
       with_env(CGO_ENABLED: "0") do
